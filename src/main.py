@@ -106,7 +106,7 @@ def main():
     try:
         dir_p = sys.argv[1]
     except IndexError:  # if dir_path is not given, then use the default one
-        dir_p = "../data"
+        dir_p = "data"
 
     # sort the files in a chronological order
     files = os.listdir(dir_p)
@@ -134,7 +134,7 @@ def main():
     total = np.vstack([global_n, global_k.T])
 
     data = pd.DataFrame(total.T, columns=["Sum", "Channel 1", "Channel 2"])
-    data.index = file
+    data.index = files
     data.to_excel("output.xlsx")
 
     time_end_t = time.time()
